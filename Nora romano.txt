@@ -1,0 +1,17 @@
+Hacer un programa que solucione el tema en la escuela.
+
+Dar una teoria, videos y dar ejercicios y una evaluacion (ejercicios(educaplay)).
+
+HTML, CSS, JS.
+
+Fecha de entrega aproximada: mesas de mayo o junio.
+
+
+
+TIC. 4 clases con temas distintos
+Inicio de sesion de los alumnos.
+usuario administrativo.
+un listado de los alumnos que participaron en los ejercicios.
+
+Crear un campo en la tabla alumnos, donde indiquen que tareas han revisado y luego
+el perfil del admin pueda revisarlos

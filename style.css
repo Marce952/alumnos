@@ -1,0 +1,161 @@
+* {
+    --azulOscuro: #1b4a87;
+    --azul: #1e6fa6;
+    --celeste: #7cb9cc;
+    --grisClaro: #fafafa;
+    --morado: #684f82;
+    --moradoClaro: rgb(148, 120, 179);
+}
+
+body {
+    background-color: var(--grisClaro) !important;
+}
+
+.card-body {
+    background-color: var(--moradoClaro);
+    color: #fff;
+    text-decoration: underline;
+}
+
+.btn-volver {
+    background-color: #7ED5FF;
+    /* Color de fondo inicial */
+    background-image: linear-gradient(to top,
+            var(--moradoClaro) 50%,
+            #ffffff 50%);
+    /* Gradiente que va de amarillo a blanco */
+    background-size: 100% 200%;
+    /* Tamaño del gradiente */
+    transition: background-position 0.5s ease-in-out;
+    /* Transición de la posición del gradiente */
+}
+
+.btn-volver-registro {
+    background-image: linear-gradient(to top,
+            var(--celeste) 50%,
+            #ffffff 50%);
+    margin: 2px 0 0 2px;
+}
+
+.btn-volver:hover {
+    background-position: 0 -100%;
+    /* Posición final del gradiente al pasar el cursor por encima */
+}
+
+.btn-success {
+    background-color: var(--moradoClaro);
+    border: var(--moradoClaro);
+}
+
+.btn-success:hover {
+    background-color: var(--morado);
+    border: var(--morado);
+}
+
+.titulo {
+    text-transform: uppercase;
+    text-decoration: underline 4px var(--morado);
+}
+
+.shadow-blue {
+    box-shadow: 0 0.2rem 0.5rem var(--morado) !important;
+    border-radius: 0 0 20px 20px;
+}
+
+
+/* =================
+    INDEX
+    =================
+*/
+
+.body-index {
+    background-image: url('img/back3.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.titulo-index {
+    position: relative;
+    font-family: roboto;
+    font-weight: 700;
+    margin-bottom: 15px;
+}
+
+.titulo-index::before {
+    content: "";
+    position: absolute;
+    top: 100%;
+    width: 100%;
+    left: 0;
+    height: 5px;
+    border-radius: 2px;
+    background: linear-gradient(to right, #579393, #ADFFFD);
+}
+
+.titulo-index-center {
+    text-align: center;
+}
+
+.btn-ingresar {
+    margin-left: 50%;
+}
+
+.btn-registro {
+    margin: 0 50% !important;
+}
+
+/* =================
+    PRINCIPAL
+    =================
+*/
+
+nav {
+    background-color: #C2FF8F !important;
+}
+
+.col {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.nombreUsuario {
+    font-weight: 700;
+    color: var(--morado);
+}
+
+/* ========== CLASE ========= */
+.container-collapse {
+    background-color: #fff;
+    padding: 20px;
+}
+
+/* ======== PERFIL ========== */
+
+.datos {
+    font-size: large;
+    font-weight: 700;
+}
+
+.datosPerfil {
+    font-weight: 600 !important;
+    text-decoration: underline;
+}
+
+/* =================
+    PANTALLA CHICAS
+    =================
+*/
+
+@media (max-width: 576px) {
+
+    .container-card {
+        flex-direction: column;
+    }
+
+    /* ==== INDEX ==== */
+
+    .btn-ingresar {
+        margin-left: 40%;
+    }
+}
