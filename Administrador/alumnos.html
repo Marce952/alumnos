@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="styleAdmin.css">
+    <title>Document</title>
+</head>
+
+<body onLoad="listadoDeAlumnos()">
+    <h1>Lista de alumnos</h1>
+
+    <div>
+        <a class="btn btn-light btn-volver" href="admin.html"> <i class="bi bi-arrow-left"></i> Volver</a>
+    </div>
+
+    <div id="listaAlumnos" class="container container-table shadow p-3 mb-5 rounded">
+        <table>
+            <thead>
+                <td>Nombre</td>
+                <td>Apellido</td>
+                <td>DNI</td>
+                <td>Tarea1</td>
+                <td>Tarea2</td>
+                <td>Tarea3</td>
+                <td>Tarea4</td>
+            </thead>
+
+            <tbody>
+                <td id="tdNombre" class="td-datosAlumnos"></td>
+                <td id="tdApellido" class="td-datosAlumnos"></td>
+                <td id="tdDNI" class="td-datosAlumnos"></td>
+                <td id="tdTarea1" class="td-datosAlumnos"></td>
+                <td id="tdTarea2" class="td-datosAlumnos"></td>
+                <td id="tdTarea3" class="td-datosAlumnos"></td>
+                <td id="tdTarea4" class="td-datosAlumnos"></td>
+            </tbody>
+        </table>
+    </div>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous">
+        </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="axiosAdmin.js"></script>
+</body>
+
+</html>

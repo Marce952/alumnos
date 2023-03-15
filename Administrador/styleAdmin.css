@@ -1,0 +1,37 @@
+/* ================ ADMIN =================== */
+/* ==== ALUMNOS ======== */
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background-color: aliceblue;
+}
+
+.container-table{
+    background-color: #fff;
+    overflow: scroll;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+table{
+    width: 100%;
+
+}
+
+table > thead{
+    background-color: #7ED5FF;
+    width: 100%;
+    font-weight: 700;
+    color: #fff;
+    font-family: sans-serif;
+    padding: 20px;
+}
+
+.hecho{
+    color: green;
+}
