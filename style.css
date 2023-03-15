@@ -72,6 +72,7 @@ body {
     background-image: url('img/back3.jpg');
     background-size: cover;
     background-repeat: no-repeat;
+    height: 100vh;
 }
 
 .titulo-index {
@@ -96,12 +97,16 @@ body {
     text-align: center;
 }
 
+.p-index{
+    text-align: center;
+}
+
 .btn-ingresar {
     margin-left: 50%;
 }
 
 .btn-registro {
-    margin: 0 50% !important;
+    margin: 0 auto !important;
 }
 
 /* =================
