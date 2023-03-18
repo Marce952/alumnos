@@ -1,5 +1,6 @@
 let pagina = "Clases/Principal.html";
-
+let host = 'https://apialumnos.netlify.app/api'
+//let host = 'http://localhost:3000/api'
 
 // ======== INDEX.HTML ==========
 
@@ -22,7 +23,7 @@ const localStorageInicio = (idAlumnos, nombre, apellido, dni, contraseña, tarea
 }
 
 const cargarAlumnos = () => {
-    axios.get('http://localhost:3005/alumnos')
+    axios.get(`${host}/alumnos`)
         .then((resp) => {
             console.log(resp)
         }).catch((error) => {
@@ -39,14 +40,14 @@ const inicioSesionAlumnos = () => {
     if (dniInicio == '' || contraseñaInicio == '') {
         alert('Ingresar dni y contraseña')
     } else {
-        axios.get(`http://localhost:3005/alumnos/existe/${dniInicio}`)
+        axios.get(`${host}/alumnos/existe/${dniInicio}`)
             .then((resp) => {
                 let existe = resp.data[0].existe
 
                 if (existe == 0) {
                     alert('Este usuario no existe')
                 } else {
-                    axios.get(`http://localhost:3005/alumnos/dni/${dniInicio}`)
+                    axios.get(`${host}/alumnos/dni/${dniInicio}`)
                         .then((resp) => {
                             let dniBD = resp.data[0].dni
                             let contra = resp.data[0].contraseña
@@ -86,7 +87,7 @@ const inicioSesionAdmin = () => {
     if (legajo == '' || contraseñaAdmin == '') {
         alert('Ingresar dni y contraseña')
     } else {
-        axios.get(`http://localhost:3005/administrador/legajo/${legajo}`)
+        axios.get(`${host}/administrador/legajo/${legajo}`)
             .then((resp) => {
                 let legajoBD = resp.data[0].legajo
                 let contraBD = resp.data[0].contraseña
@@ -133,13 +134,13 @@ const guardarAlumnos = () => {
     const contraseña = document.getElementById('contraseña').value
 
     if (nombre != '' && apellido != '' && dni != '' && contraseña != '') {
-        axios.get(`http://localhost:3005/alumnos/existe/${dni}`)
+        axios.get(`${host}/alumnos/existe/${dni}`)
             .then((resp) => {
                 let existe = resp.data[0].existe
                 if (existe == 1) {
                     alert('Este dni está siendo usado')
                 } else {
-                    axios.post('http://localhost:3005/alumnos', {
+                    axios.post(`${host}/alumnos`, {
                         nombre,
                         apellido,
                         dni,
@@ -263,11 +264,11 @@ const validarNuevaContraseña = (nuevaContraseña, confirmarNuevaContraseña) =>
 }
 
 const comprobarDniExistente = (dni) => {
-    return axios.get(`http://localhost:3005/alumnos/existe/${dni}`)
+    return axios.get(`${host}/alumnos/existe/${dni}`)
 }
 
 const actualizarDatosUsuario = (nombre, apellido, dni, contraseña, tarea1, tarea2, tarea3, tarea4) => {
-    return axios.put(`http://localhost:3005/alumnos/${usuarioActivoCargado.idAlumnos}`, {
+    return axios.put(`${host}/alumnos/${usuarioActivoCargado.idAlumnos}`, {
         nombre,
         apellido,
         dni,
@@ -328,7 +329,7 @@ const completarTarea = () => {
 
     let tarea1Finalizada = document.getElementById('tarea1Finalizada')
 
-    axios.put(`http://localhost:3005/alumnos/${usuarioActivoCargado.idAlumnos}`, {
+    axios.put(`${host}/alumnos/${usuarioActivoCargado.idAlumnos}`, {
         nombre: usuarioActivoCargado.nombre,
         apellido: usuarioActivoCargado.apellido,
         dni: usuarioActivoCargado.dni,
@@ -348,7 +349,7 @@ const tareaCompleta = () => {
     let usuarioActivoCargado = {}
     usuarioActivoCargado = JSON.parse(localStorage.getItem("usuario"))
 
-    axios.get(`http://localhost:3005/alumnos/${usuarioActivoCargado.idAlumnos}`)
+    axios.get(`${host}/alumnos/${usuarioActivoCargado.idAlumnos}`)
         .then((resp) => {
             let tarea1Completa = resp.data[0].tarea1
 
