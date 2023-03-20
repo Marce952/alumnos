@@ -24,7 +24,7 @@ body {
     background-color: #7ED5FF;
     /* Color de fondo inicial */
     background-image: linear-gradient(to top,
-            var(--moradoClaro) 50%,
+            var(--background) 50%,
             #ffffff 50%);
     /* Gradiente que va de amarillo a blanco */
     background-size: 100% 200%;
@@ -120,6 +120,10 @@ body {
     =================
 */
 
+.principal-body{
+    height: 100%;
+}
+
 nav {
     background-color: #C2FF8F !important;
 }
@@ -160,6 +164,10 @@ nav {
 }
 
 /* ======== PERFIL ========== */
+
+.perfil-body{
+    height: 100vh;
+}
 
 .datos {
     font-size: large;
