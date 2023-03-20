@@ -5,15 +5,18 @@
     --grisClaro: #fafafa;
     --morado: #684f82;
     --moradoClaro: rgb(148, 120, 179);
+    --background: #94EAE9;
+    --color: #285555;
 }
 
 body {
-    background-color: var(--grisClaro) !important;
+    /* background-color: var(--background) !important; */
+    background-image: linear-gradient(to top, #adfffd 0%, #72afd3 100%);
 }
 
 .card-body {
-    background-color: var(--moradoClaro);
-    color: #fff;
+    /* background-color: var(--moradoClaro); */
+    color: var(--color);
     text-decoration: underline;
 }
 
@@ -54,11 +57,14 @@ body {
 
 .titulo {
     text-transform: uppercase;
-    text-decoration: underline 4px var(--morado);
+    text-decoration: underline 4px var(--celeste);
 }
 
 .shadow-blue {
-    box-shadow: 0 0.2rem 0.5rem var(--morado) !important;
+    /* box-shadow: 0 0.2rem 0.5rem var(--morado) !important;
+     */
+
+     /* box-shadow: 0 0.2rem 0.5rem #579393, 0 0.2rem 0.5rem #83DDDB; */
     border-radius: 0 0 20px 20px;
 }
 
@@ -126,7 +132,25 @@ nav {
 
 .nombreUsuario {
     font-weight: 700;
-    color: var(--morado);
+    color: var(--celeste);
+}
+
+.btn-drop{
+    background-color: var(--celeste);
+    transition: .5s;
+}
+
+.btn-drop:hover{
+    background-color: var(--azul);
+}
+
+.btn-drop:focus{
+    border: none;
+}
+
+.btn-drop:focus-within{
+    background-color: var(--celeste);
+    border: none;
 }
 
 /* ========== CLASE ========= */
