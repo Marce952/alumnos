@@ -4,7 +4,7 @@ const irAPrincipal = () =>{
 }
 
 const irAAlumnos = () =>{
-    let paginaAlumnos = "Alumnos.html"
+    let paginaAlumnos = "alumnos.html"
     location.href = paginaAlumnos
 }
 
