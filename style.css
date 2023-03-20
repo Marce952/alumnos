@@ -10,27 +10,27 @@
 }
 
 body {
-    /* background-color: var(--background) !important; */
+    height: 100%;
     background-image: linear-gradient(to top, #adfffd 0%, #72afd3 100%);
+    background-repeat: no-repeat;
+}
+
+.clase-body, .perfil-body, .admin-body{
+    height: 100vh;
 }
 
 .card-body {
-    /* background-color: var(--moradoClaro); */
     color: var(--color);
     text-decoration: underline;
 }
 
 .btn-volver {
     background-color: #7ED5FF;
-    /* Color de fondo inicial */
     background-image: linear-gradient(to top,
             var(--background) 50%,
             #ffffff 50%);
-    /* Gradiente que va de amarillo a blanco */
     background-size: 100% 200%;
-    /* Tamaño del gradiente */
     transition: background-position 0.5s ease-in-out;
-    /* Transición de la posición del gradiente */
 }
 
 .btn-volver-registro {
@@ -42,7 +42,6 @@ body {
 
 .btn-volver:hover {
     background-position: 0 -100%;
-    /* Posición final del gradiente al pasar el cursor por encima */
 }
 
 .btn-success {
@@ -99,11 +98,7 @@ body {
     background: linear-gradient(to right, #579393, #ADFFFD);
 }
 
-.titulo-index-center {
-    text-align: center;
-}
-
-.p-index{
+.p-index, .titulo-index-center{
     text-align: center;
 }
 
@@ -119,10 +114,6 @@ body {
     PRINCIPAL
     =================
 */
-
-.principal-body{
-    height: 100%;
-}
 
 nav {
     background-color: #C2FF8F !important;
@@ -163,11 +154,10 @@ nav {
     padding: 20px;
 }
 
+
+
 /* ======== PERFIL ========== */
 
-.perfil-body{
-    height: 100vh;
-}
 
 .datos {
     font-size: large;

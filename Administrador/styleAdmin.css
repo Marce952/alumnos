@@ -6,8 +6,10 @@
     box-sizing: border-box;
 }
 
-body{
-    background-color: aliceblue;
+body {
+    height: 100vh;
+    background-image: linear-gradient(to top, #adfffd 0%, #72afd3 100%);
+    background-repeat: no-repeat;
 }
 
 .container-table{
