@@ -1,10 +1,12 @@
+let host = 'https://apialumnos.netlify.app/api'
+
 const irAPrincipal = () =>{
     let paginaPrincipal = "../Clases/Principal.html"
     location.href = paginaPrincipal
 }
 
 const irAAlumnos = () =>{
-    let paginaAlumnos = "Alumnos.html"
+    let paginaAlumnos = "alumnos.html"
     location.href = paginaAlumnos
 }
 
@@ -15,7 +17,7 @@ const salir = () =>{
 
 const listadoDeAlumnos = () =>{
 
-    axios.get('http://localhost:3005/alumnos')
+    axios.get(`${host}/alumnos`)
         .then((resp) => {
             let tdNombre = document.getElementById('tdNombre')
             let tdApellido = document.getElementById('tdApellido')
