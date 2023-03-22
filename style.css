@@ -148,6 +148,11 @@ nav {
     border: none;
 }
 
+.picture:hover{
+    transition: 1s;
+    transform: scale(1.1);
+}
+
 /* ========== CLASE ========= */
 .container-collapse {
     background-color: #fff;
