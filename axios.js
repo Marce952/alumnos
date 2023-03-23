@@ -111,17 +111,17 @@ const inicioSesionAdmin = () => {
 const inicioSesion = () => {
     const dniInicio = document.getElementById('dni').value
 
-    if(dniInicio == '20045'){
+    if (dniInicio == '20045') {
         inicioSesionAdmin()
-    }else{
+    } else {
         inicioSesionAlumnos()
     }
 }
 
 const btnIngresar = document.getElementById('btn-ingresar')
 
-window.addEventListener('keypress', ({key}) => {
-    if(key == 'Enter'){
+window.addEventListener('keypress', ({ key }) => {
+    if (key == 'Enter') {
         btnIngresar.click()
     }
 })
@@ -133,7 +133,7 @@ const guardarAlumnos = () => {
     const dni = document.getElementById('dni').value
     const contraseña = document.getElementById('contraseña').value
 
-    if (nombre != '' && apellido != '' && dni != '' && contraseña != '') {
+    if (nombre != '' && apellido != '' && dni != '' && contraseña != '' & contraseña.length >= '8') {
         axios.get(`${host}/alumnos/existe/${dni}`)
             .then((resp) => {
                 let existe = resp.data[0].existe
@@ -153,10 +153,11 @@ const guardarAlumnos = () => {
                     console.log('Enviado')
 
                     alert("Usuario creado")
+                    location.href = '../index.html'
                 }
             })
     } else {
-        alert('No debe quedar ningun campo vacio')
+        alert('No debe quedar ningun campo vacio y la contraseña debe ser Mayor a 8 caracteres')
     }
 
 }
@@ -260,6 +261,10 @@ const validarContraseñaActual = (contraseñaActual, contraseñaUsuario) => {
 }
 
 const validarNuevaContraseña = (nuevaContraseña, confirmarNuevaContraseña) => {
+    // let usuarioActivoCargado = {}
+    // usuarioActivoCargado = JSON.parse(localStorage.getItem("usuario"))
+
+    // usuarioActivoCargado.contraseña
     return nuevaContraseña == confirmarNuevaContraseña
 }
 
@@ -295,6 +300,7 @@ const btnActualizarDatos = async () => {
 
         const nuevaContraseña = nuevaContraseñaUsuarioInp.value
         const confirmarNuevaContraseña = confirmarNuevaContraseñaUsuarioInp.value
+
         if (!validarNuevaContraseña(nuevaContraseña, confirmarNuevaContraseña)) {
             throw new Error('Las contraseñas no coinciden')
         }
@@ -311,7 +317,6 @@ const btnActualizarDatos = async () => {
 
         await actualizarDatosUsuario(nombreNuevo, apellidoNuevo, dni, contraseñaNueva, usuarioActivoCargado.tarea1, usuarioActivoCargado.tarea2, usuarioActivoCargado.tarea3, usuarioActivoCargado.tarea4)
 
-        console.log(usuarioActivoCargado.tarea1)
         localStorageInicio(usuarioActivoCargado.idAlumnos, nombreNuevo, apellidoNuevo, dni, contraseñaNueva, usuarioActivoCargado.tarea1, usuarioActivoCargado.tarea2, usuarioActivoCargado.tarea3, usuarioActivoCargado.tarea4)
         alert('Datos guardados con exito')
         btnCancelarDatos()

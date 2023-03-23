@@ -44,16 +44,6 @@ body {
     background-position: 0 -100%;
 }
 
-.btn-success {
-    background-color: var(--moradoClaro);
-    border: var(--moradoClaro);
-}
-
-.btn-success:hover {
-    background-color: var(--morado);
-    border: var(--morado);
-}
-
 .titulo {
     text-transform: uppercase;
     text-decoration: underline 4px var(--celeste);
