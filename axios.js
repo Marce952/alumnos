@@ -1,6 +1,6 @@
 let pagina = "Clases/Principal.html";
 let host = 'https://apialumnos.netlify.app/api'
-//let host = 'http://localhost:3000/api'
+// let host = 'http://localhost:3005'
 
 // ======== INDEX.HTML ==========
 
@@ -254,6 +254,8 @@ const btnCancelarDatos = () => {
     nuevaContraseñaUsuarioInp.hidden = true
     confirmarNuevaContraseñaUsuarioP.hidden = true
     confirmarNuevaContraseñaUsuarioInp.hidden = true
+
+    location.reload()
 }
 
 const validarContraseñaActual = (contraseñaActual, contraseñaUsuario) => {
@@ -261,10 +263,6 @@ const validarContraseñaActual = (contraseñaActual, contraseñaUsuario) => {
 }
 
 const validarNuevaContraseña = (nuevaContraseña, confirmarNuevaContraseña) => {
-    // let usuarioActivoCargado = {}
-    // usuarioActivoCargado = JSON.parse(localStorage.getItem("usuario"))
-
-    // usuarioActivoCargado.contraseña
     return nuevaContraseña == confirmarNuevaContraseña
 }
 
@@ -313,10 +311,14 @@ const btnActualizarDatos = async () => {
 
         const nombreNuevo = nombreUsuarioInp.value
         const apellidoNuevo = apellidoUsuarioInp.value
-        const contraseñaNueva = nuevaContraseñaUsuarioInp.value
+
+        let contraseñaNueva = contraseñaActual; // Se inicializa con la contraseña actual
+        if (nuevaContraseña && confirmarNuevaContraseña && validarNuevaContraseña(nuevaContraseña, confirmarNuevaContraseña)) {
+            contraseñaNueva = nuevaContraseña; // Se actualiza con la nueva contraseña
+        }
 
         await actualizarDatosUsuario(nombreNuevo, apellidoNuevo, dni, contraseñaNueva, usuarioActivoCargado.tarea1, usuarioActivoCargado.tarea2, usuarioActivoCargado.tarea3, usuarioActivoCargado.tarea4)
-
+        
         localStorageInicio(usuarioActivoCargado.idAlumnos, nombreNuevo, apellidoNuevo, dni, contraseñaNueva, usuarioActivoCargado.tarea1, usuarioActivoCargado.tarea2, usuarioActivoCargado.tarea3, usuarioActivoCargado.tarea4)
         alert('Datos guardados con exito')
         btnCancelarDatos()
