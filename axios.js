@@ -1,6 +1,8 @@
 let pagina = "Clases/Principal.html";
 let host = 'https://apialumnos.netlify.app/api'
 // let host = 'http://localhost:3005'
+// let host = 'http://localhost:3000/api'
+
 
 // ======== INDEX.HTML ==========
 
