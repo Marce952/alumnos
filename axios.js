@@ -1,18 +1,19 @@
 let pagina = "Clases/Principal.html";
 let host = 'https://apialumnos.netlify.app/api'
-//let host = 'http://localhost:3000/api'
+// let host = 'http://localhost:3005'
+// let host = 'http://localhost:3000/api'
 
 // ======== INDEX.HTML ==========
 
 
 
-const localStorageInicio = (idAlumnos, nombre, apellido, dni, contraseña, tarea1, tarea2, tarea3, tarea4) => {
+const localStorageInicio = (idAlumnos, nombre, apellido, dni, password, tarea1, tarea2, tarea3, tarea4) => {
     let usuarioLocal = {
         idAlumnos,
         nombre,
         apellido,
         dni,
-        contraseña,
+        password,
         tarea1,
         tarea2,
         tarea3,
@@ -35,10 +36,10 @@ const cargarAlumnos = () => {
 
 const inicioSesionAlumnos = () => {
     const dniInicio = document.getElementById('dni').value
-    const contraseñaInicio = document.getElementById('contraseña').value
+    const passwordInicio = document.getElementById('password').value
 
-    if (dniInicio == '' || contraseñaInicio == '') {
-        alert('Ingresar dni y contraseña')
+    if (dniInicio == '' || passwordInicio == '') {
+        alert('Ingresar dni y password')
     } else {
         axios.get(`${host}/alumnos/existe/${dniInicio}`)
             .then((resp) => {
@@ -50,28 +51,28 @@ const inicioSesionAlumnos = () => {
                     axios.get(`${host}/alumnos/dni/${dniInicio}`)
                         .then((resp) => {
                             let dniBD = resp.data[0].dni
-                            let contra = resp.data[0].contraseña
+                            let contra = resp.data[0].password
 
-                            if (contraseñaInicio == contra && dniInicio == dniBD) {
+                            if (passwordInicio == contra && dniInicio == dniBD) {
                                 let usuarioActivo = resp.data[0]
 
                                 let idAlumnos = usuarioActivo.idAlumnos
                                 let nombre = usuarioActivo.nombre
                                 let apellido = usuarioActivo.apellido
                                 let dni = usuarioActivo.dni
-                                let contraseña = usuarioActivo.contraseña
+                                let password = usuarioActivo.password
                                 let tarea1 = usuarioActivo.tarea1
                                 let tarea2 = usuarioActivo.tarea2
                                 let tarea3 = usuarioActivo.tarea3
                                 let tarea4 = usuarioActivo.tarea4
 
 
-                                localStorageInicio(idAlumnos, nombre, apellido, dni, contraseña, tarea1, tarea2, tarea3, tarea4)
+                                localStorageInicio(idAlumnos, nombre, apellido, dni, password, tarea1, tarea2, tarea3, tarea4)
 
                                 location.href = pagina
-                                console.log('Contraseña y usuario correctos')
+                                console.log('password y usuario correctos')
                             } else {
-                                alert('El usuario no coincide con la contraseña')
+                                alert('El usuario no coincide con la password')
                             }
                         })
                 }
@@ -82,26 +83,26 @@ const inicioSesionAlumnos = () => {
 const inicioSesionAdmin = () => {
     let paginaAdmin = "Administrador/admin.html"
     const legajo = document.getElementById('dni').value
-    const contraseñaAdmin = document.getElementById('contraseña').value
+    const passwordAdmin = document.getElementById('password').value
 
-    if (legajo == '' || contraseñaAdmin == '') {
-        alert('Ingresar dni y contraseña')
+    if (legajo == '' || passwordAdmin == '') {
+        alert('Ingresar dni y password')
     } else {
         axios.get(`${host}/administrador/legajo/${legajo}`)
             .then((resp) => {
                 let legajoBD = resp.data[0].legajo
-                let contraBD = resp.data[0].contraseña
+                let contraBD = resp.data[0].password
 
-                if (legajo == legajoBD && contraseñaAdmin == contraBD) {
+                if (legajo == legajoBD && passwordAdmin == contraBD) {
                     let adminActivo = resp.data[0]
                     let idAdministrador = adminActivo.idAdministrador
                     let legajo = adminActivo.legajo
-                    let contraseña = adminActivo.contraseña
+                    let password = adminActivo.password
 
                     location.href = paginaAdmin
-                    console.log('Contraseña y usuario correctos')
+                    console.log('password y usuario correctos')
                 } else {
-                    alert('El usuario no coincide con la contraseña')
+                    alert('El usuario no coincide con la password')
                 }
             })
     }
@@ -111,17 +112,17 @@ const inicioSesionAdmin = () => {
 const inicioSesion = () => {
     const dniInicio = document.getElementById('dni').value
 
-    if(dniInicio == '20045'){
+    if (dniInicio == '20045') {
         inicioSesionAdmin()
-    }else{
+    } else {
         inicioSesionAlumnos()
     }
 }
 
 const btnIngresar = document.getElementById('btn-ingresar')
 
-window.addEventListener('keypress', ({key}) => {
-    if(key == 'Enter'){
+window.addEventListener('keypress', ({ key }) => {
+    if (key == 'Enter') {
         btnIngresar.click()
     }
 })
@@ -131,9 +132,9 @@ const guardarAlumnos = () => {
     const nombre = document.getElementById('nombre').value
     const apellido = document.getElementById('apellido').value
     const dni = document.getElementById('dni').value
-    const contraseña = document.getElementById('contraseña').value
+    const password = document.getElementById('password').value
 
-    if (nombre != '' && apellido != '' && dni != '' && contraseña != '') {
+    if (nombre != '' && apellido != '' && dni != '' && password != '' & password.length >= '8') {
         axios.get(`${host}/alumnos/existe/${dni}`)
             .then((resp) => {
                 let existe = resp.data[0].existe
@@ -144,7 +145,7 @@ const guardarAlumnos = () => {
                         nombre,
                         apellido,
                         dni,
-                        contraseña
+                        password
                     }).then((resp) => {
                         console.log(resp)
                     }).catch((error) => {
@@ -153,10 +154,11 @@ const guardarAlumnos = () => {
                     console.log('Enviado')
 
                     alert("Usuario creado")
+                    location.href = '../index.html'
                 }
             })
     } else {
-        alert('No debe quedar ningun campo vacio')
+        alert('No debe quedar ningun campo vacio y la password debe ser Mayor a 8 caracteres')
     }
 
 }
@@ -186,13 +188,13 @@ const dniUsuario = document.getElementById('dniUsuario')
 const nombreUsuarioInp = document.getElementById('nombreUsuarioInp')
 const apellidoUsuarioInp = document.getElementById('apellidoUsuarioInp')
 const dniUsuarioInp = document.getElementById('dniUsuarioInp')
-const contraseñaActualUsuarioInp = document.getElementById('contraseñaActualUsuarioInp')
-const nuevaContraseñaUsuarioInp = document.getElementById('nuevaContraseñaUsuarioInp')
-const confirmarNuevaContraseñaUsuarioInp = document.getElementById('confirmarNuevaContraseñaUsuarioInp')
+const passwordActualUsuarioInp = document.getElementById('passwordActualUsuarioInp')
+const nuevapasswordUsuarioInp = document.getElementById('nuevapasswordUsuarioInp')
+const confirmarNuevapasswordUsuarioInp = document.getElementById('confirmarNuevapasswordUsuarioInp')
 
-const contraseñaActualUsuarioP = document.getElementById('contraseñaActualUsuarioP')
-const nuevaContraseñaUsuarioP = document.getElementById('nuevaContraseñaUsuarioP')
-const confirmarNuevaContraseñaUsuarioP = document.getElementById('confirmarNuevaContraseñaUsuarioP')
+const passwordActualUsuarioP = document.getElementById('passwordActualUsuarioP')
+const nuevapasswordUsuarioP = document.getElementById('nuevapasswordUsuarioP')
+const confirmarNuevapasswordUsuarioP = document.getElementById('confirmarNuevapasswordUsuarioP')
 
 const btnCambiar = document.getElementById('btn-Cambiar')
 const btnActualizar = document.getElementById('btn-Actualizar')
@@ -220,12 +222,12 @@ const btnCambiarDatos = () => {
     dniUsuarioInp.hidden = false
     dniUsuario.hidden = true
 
-    contraseñaActualUsuarioP.hidden = false
-    contraseñaActualUsuarioInp.hidden = false
-    nuevaContraseñaUsuarioP.hidden = false
-    nuevaContraseñaUsuarioInp.hidden = false
-    confirmarNuevaContraseñaUsuarioP.hidden = false
-    confirmarNuevaContraseñaUsuarioInp.hidden = false
+    passwordActualUsuarioP.hidden = false
+    passwordActualUsuarioInp.hidden = false
+    nuevapasswordUsuarioP.hidden = false
+    nuevapasswordUsuarioInp.hidden = false
+    confirmarNuevapasswordUsuarioP.hidden = false
+    confirmarNuevapasswordUsuarioInp.hidden = false
 
     nombreUsuarioInp.value = usuarioActivoCargado.nombre
     apellidoUsuarioInp.value = usuarioActivoCargado.apellido
@@ -247,32 +249,34 @@ const btnCancelarDatos = () => {
     dniUsuarioInp.hidden = true
     dniUsuario.hidden = false
 
-    contraseñaActualUsuarioP.hidden = true
-    contraseñaActualUsuarioInp.hidden = true
-    nuevaContraseñaUsuarioP.hidden = true
-    nuevaContraseñaUsuarioInp.hidden = true
-    confirmarNuevaContraseñaUsuarioP.hidden = true
-    confirmarNuevaContraseñaUsuarioInp.hidden = true
+    passwordActualUsuarioP.hidden = true
+    passwordActualUsuarioInp.hidden = true
+    nuevapasswordUsuarioP.hidden = true
+    nuevapasswordUsuarioInp.hidden = true
+    confirmarNuevapasswordUsuarioP.hidden = true
+    confirmarNuevapasswordUsuarioInp.hidden = true
+
+    location.reload()
 }
 
-const validarContraseñaActual = (contraseñaActual, contraseñaUsuario) => {
-    return contraseñaActual == contraseñaUsuario
+const validarpasswordActual = (passwordActual, passwordUsuario) => {
+    return passwordActual == passwordUsuario
 }
 
-const validarNuevaContraseña = (nuevaContraseña, confirmarNuevaContraseña) => {
-    return nuevaContraseña == confirmarNuevaContraseña
+const validarNuevapassword = (nuevapassword, confirmarNuevapassword) => {
+    return nuevapassword == confirmarNuevapassword
 }
 
 const comprobarDniExistente = (dni) => {
     return axios.get(`${host}/alumnos/existe/${dni}`)
 }
 
-const actualizarDatosUsuario = (nombre, apellido, dni, contraseña, tarea1, tarea2, tarea3, tarea4) => {
+const actualizarDatosUsuario = (nombre, apellido, dni, password, tarea1, tarea2, tarea3, tarea4) => {
     return axios.put(`${host}/alumnos/${usuarioActivoCargado.idAlumnos}`, {
         nombre,
         apellido,
         dni,
-        contraseña,
+        password,
         tarea1,
         tarea2,
         tarea3,
@@ -288,15 +292,16 @@ const btnActualizarDatos = async () => {
         const confirmado = confirm('¿Realmente quieres cambiar tus datos?')
         if (!confirmado) return
 
-        const contraseñaActual = contraseñaActualUsuarioInp.value
-        if (!validarContraseñaActual(contraseñaActual, usuarioActivoCargado.contraseña)) {
-            throw new Error('La contraseña actual no es correcta')
+        const passwordActual = passwordActualUsuarioInp.value
+        if (!validarpasswordActual(passwordActual, usuarioActivoCargado.password)) {
+            throw new Error('La password actual no es correcta')
         }
 
-        const nuevaContraseña = nuevaContraseñaUsuarioInp.value
-        const confirmarNuevaContraseña = confirmarNuevaContraseñaUsuarioInp.value
-        if (!validarNuevaContraseña(nuevaContraseña, confirmarNuevaContraseña)) {
-            throw new Error('Las contraseñas no coinciden')
+        const nuevapassword = nuevapasswordUsuarioInp.value
+        const confirmarNuevapassword = confirmarNuevapasswordUsuarioInp.value
+
+        if (!validarNuevapassword(nuevapassword, confirmarNuevapassword)) {
+            throw new Error('Las passwords no coinciden')
         }
 
         const dni = dniUsuarioInp.value
@@ -307,12 +312,15 @@ const btnActualizarDatos = async () => {
 
         const nombreNuevo = nombreUsuarioInp.value
         const apellidoNuevo = apellidoUsuarioInp.value
-        const contraseñaNueva = nuevaContraseñaUsuarioInp.value
 
-        await actualizarDatosUsuario(nombreNuevo, apellidoNuevo, dni, contraseñaNueva, usuarioActivoCargado.tarea1, usuarioActivoCargado.tarea2, usuarioActivoCargado.tarea3, usuarioActivoCargado.tarea4)
+        let passwordNueva = passwordActual; // Se inicializa con la password actual
+        if (nuevapassword && confirmarNuevapassword && validarNuevapassword(nuevapassword, confirmarNuevapassword)) {
+            passwordNueva = nuevapassword; // Se actualiza con la nueva password
+        }
 
-        console.log(usuarioActivoCargado.tarea1)
-        localStorageInicio(usuarioActivoCargado.idAlumnos, nombreNuevo, apellidoNuevo, dni, contraseñaNueva, usuarioActivoCargado.tarea1, usuarioActivoCargado.tarea2, usuarioActivoCargado.tarea3, usuarioActivoCargado.tarea4)
+        await actualizarDatosUsuario(nombreNuevo, apellidoNuevo, dni, passwordNueva, usuarioActivoCargado.tarea1, usuarioActivoCargado.tarea2, usuarioActivoCargado.tarea3, usuarioActivoCargado.tarea4)
+        
+        localStorageInicio(usuarioActivoCargado.idAlumnos, nombreNuevo, apellidoNuevo, dni, passwordNueva, usuarioActivoCargado.tarea1, usuarioActivoCargado.tarea2, usuarioActivoCargado.tarea3, usuarioActivoCargado.tarea4)
         alert('Datos guardados con exito')
         btnCancelarDatos()
     }
@@ -333,7 +341,7 @@ const completarTarea = () => {
         nombre: usuarioActivoCargado.nombre,
         apellido: usuarioActivoCargado.apellido,
         dni: usuarioActivoCargado.dni,
-        contraseña: usuarioActivoCargado.contraseña,
+        password: usuarioActivoCargado.password,
         tarea1: '1',
         tarea2: usuarioActivoCargado.tarea2,
         tarea3: usuarioActivoCargado.tarea3,
