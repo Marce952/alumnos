@@ -1,4 +1,4 @@
-* {
+:root {
     --azulOscuro: #1b4a87;
     --azul: #1e6fa6;
     --celeste: #7cb9cc;
@@ -9,28 +9,37 @@
     --color: #285555;
 }
 
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+/* #75C5C4, #ADFFFD */
 body {
-    /* background-color: var(--background) !important; */
-    background-image: linear-gradient(to top, #adfffd 0%, #72afd3 100%);
+    height: 100%;
+    background-image: linear-gradient(to top, #7efdfb 1%, #41918f 100%);
+    background-repeat: no-repeat;
+}
+
+.clase-body,
+.perfil-body,
+.admin-body {
+    height: 100vh;
 }
 
 .card-body {
-    /* background-color: var(--moradoClaro); */
     color: var(--color);
     text-decoration: underline;
 }
 
 .btn-volver {
     background-color: #7ED5FF;
-    /* Color de fondo inicial */
     background-image: linear-gradient(to top,
             var(--background) 50%,
             #ffffff 50%);
-    /* Gradiente que va de amarillo a blanco */
     background-size: 100% 200%;
-    /* Tamaño del gradiente */
     transition: background-position 0.5s ease-in-out;
-    /* Transición de la posición del gradiente */
 }
 
 .btn-volver-registro {
@@ -42,17 +51,6 @@ body {
 
 .btn-volver:hover {
     background-position: 0 -100%;
-    /* Posición final del gradiente al pasar el cursor por encima */
-}
-
-.btn-success {
-    background-color: var(--moradoClaro);
-    border: var(--moradoClaro);
-}
-
-.btn-success:hover {
-    background-color: var(--morado);
-    border: var(--morado);
 }
 
 .titulo {
@@ -64,7 +62,7 @@ body {
     /* box-shadow: 0 0.2rem 0.5rem var(--morado) !important;
      */
 
-     /* box-shadow: 0 0.2rem 0.5rem #579393, 0 0.2rem 0.5rem #83DDDB; */
+    /* box-shadow: 0 0.2rem 0.5rem #579393, 0 0.2rem 0.5rem #83DDDB; */
     border-radius: 0 0 20px 20px;
 }
 
@@ -74,18 +72,37 @@ body {
     =================
 */
 
+.container-inicio-sesion, .container-registro{
+    background: rgba(255, 255, 255, 0.50);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(4.9px);
+    -webkit-backdrop-filter: blur(4.9px);
+    width: 30rem;
+
+}
+
+.container-inicio-sesion {
+    color: #000;
+    font-weight: 600;
+    text-align: center;
+}
+
 .body-index {
     background-image: url('img/back3.jpg');
     background-size: cover;
+    background-position-y: 20%;
     background-repeat: no-repeat;
     height: 100vh;
 }
 
 .titulo-index {
     position: relative;
-    font-family: roboto;
+    font-family: Roboto;
     font-weight: 700;
     margin-bottom: 15px;
+    color: #000;
+    text-transform: uppercase;
 }
 
 .titulo-index::before {
@@ -96,33 +113,23 @@ body {
     left: 0;
     height: 5px;
     border-radius: 2px;
-    background: linear-gradient(to right, #579393, #ADFFFD);
+    background-color: #004a55;
+    /* background: linear-gradient(to right, #ADFFFD, #75C5C4); */
 }
 
+.p-index,
 .titulo-index-center {
     text-align: center;
 }
 
-.p-index{
-    text-align: center;
-}
-
-.btn-ingresar {
-    margin-left: 50%;
-}
-
 .btn-registro {
-    margin: 0 50%;
+    margin: 0 auto;
 }
 
 /* =================
     PRINCIPAL
     =================
 */
-
-.principal-body{
-    height: 100%;
-}
 
 nav {
     background-color: #C2FF8F !important;
@@ -139,35 +146,46 @@ nav {
     color: var(--celeste);
 }
 
-.btn-drop{
+.btn-drop {
     background-color: var(--celeste);
     transition: .5s;
 }
 
-.btn-drop:hover{
+.btn-drop:hover {
     background-color: var(--azul);
 }
 
-.btn-drop:focus{
+.btn-drop:focus {
     border: none;
 }
 
-.btn-drop:focus-within{
+.btn-drop:focus-within {
     background-color: var(--celeste);
     border: none;
 }
 
-/* ========== CLASE ========= */
+.picture:hover {
+    transition: 1s;
+    transform: scale(1.1);
+}
+
+footer{
+    width: 100%;
+
+}
+
+/* ========== 
+        CLASE 
+    ========= */
 .container-collapse {
     background-color: #fff;
     padding: 20px;
 }
 
-/* ======== PERFIL ========== */
+/* ======== 
+        PERFIL
+    ========== */
 
-.perfil-body{
-    height: 100vh;
-}
 
 .datos {
     font-size: large;
@@ -179,6 +197,14 @@ nav {
     text-decoration: underline;
 }
 
+/* ======== 
+        REGISTRO
+    ========== */
+
+.btn-registrarse{
+    margin-left: 40%;
+}
+
 /* =================
     PANTALLA CHICAS
     =================
@@ -186,17 +212,20 @@ nav {
 
 @media (max-width: 576px) {
 
+    .container-inicio-sesion, .container-registro{
+        width: 300px;
+    }
+
     .container-card {
         flex-direction: column;
     }
 
     /* ==== INDEX ==== */
-
-    .btn-ingresar {
-        margin-left: 40%;
+    .btn-ingresar{
+        margin-left: 35%;
     }
 
-    .btn-registro{
-        margin: 0 40%;
+    .btn-registrarse{
+        margin-left: 30%;
     }
 }
