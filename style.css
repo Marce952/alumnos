@@ -79,7 +79,7 @@ body {
     backdrop-filter: blur(4.9px);
     -webkit-backdrop-filter: blur(4.9px);
     width: 30rem;
-    min-width: 290px;
+    min-width: 310px;
 }
 
 .container-inicio-sesion {
@@ -222,7 +222,7 @@ footer{
 
     /* ==== INDEX ==== */
     .btn-ingresar{
-        margin-left: 35%;
+        margin-left: auto;
     }
 
     .btn-registrarse{

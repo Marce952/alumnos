@@ -133,9 +133,11 @@ const guardarAlumnos = () => {
     const apellido = document.getElementById('apellido').value
     const dni = document.getElementById('dni').value
     const password = document.getElementById('password').value
+    const confirmarPassword = document.getElementById('confirmarPassword').value
 
     if (nombre != '' && apellido != '' && dni != '' && password != '' & password.length >= '8') {
-        axios.get(`${host}/alumnos/existe/${dni}`)
+        if(password == confirmarPassword){
+            axios.get(`${host}/alumnos/existe/${dni}`)
             .then((resp) => {
                 let existe = resp.data[0].existe
                 if (existe == 1) {
@@ -157,6 +159,9 @@ const guardarAlumnos = () => {
                     location.href = '../index.html'
                 }
             })
+        }else{
+            alert('Las contraseñas no coinciden')
+        }
     } else {
         alert('No debe quedar ningun campo vacio y la password debe ser Mayor a 8 caracteres')
     }
