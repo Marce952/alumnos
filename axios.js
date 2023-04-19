@@ -299,14 +299,14 @@ const btnActualizarDatos = async () => {
 
         const passwordActual = passwordActualUsuarioInp.value
         if (!validarpasswordActual(passwordActual, usuarioActivoCargado.password)) {
-            throw new Error('La password actual no es correcta')
+            throw new Error('La contraseña actual no es correcta')
         }
 
         const nuevapassword = nuevapasswordUsuarioInp.value
         const confirmarNuevapassword = confirmarNuevapasswordUsuarioInp.value
 
         if (!validarNuevapassword(nuevapassword, confirmarNuevapassword)) {
-            throw new Error('Las passwords no coinciden')
+            throw new Error('Las contraseñas no coinciden')
         }
 
         const dni = dniUsuarioInp.value
