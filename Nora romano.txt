@@ -16,7 +16,7 @@ un listado de los alumnos que participaron en los ejercicios.
 Crear un campo en la tabla alumnos, donde indiquen que tareas han revisado y luego
 el perfil del admin pueda revisarlos
 
-Arreglar boton de iniciar sesion
-Agrandar wdth inicio
+Arreglar boton de iniciar sesion_
+Agrandar wdth inicio_
 Mensaje de confirmacion sobre la tarea realizada
 Perfil, ajustar los datos
