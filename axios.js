@@ -1,6 +1,6 @@
 let pagina = "Clases/Principal.html";
-let host = 'https://apialumnos.netlify.app/api'
-// let host = 'http://localhost:3005'
+// let host = 'https://apialumnos.netlify.app/api'
+let host = 'http://localhost:3005'
 // let host = 'http://localhost:3000/api'
 
 // ======== INDEX.HTML ==========
@@ -337,25 +337,30 @@ const btnActualizarDatos = async () => {
 // ========== CLASES.HTML ============
 
 const completarTarea = () => {
-    let usuarioActivoCargado = {}
-    usuarioActivoCargado = JSON.parse(localStorage.getItem("usuario"))
+    const trabajoFinalClase2 = document.getElementById('trabajoFinalClase2')
 
-    let tarea1Finalizada = document.getElementById('tarea1Finalizada')
+    if(trabajoFinalClase2.hidden == true){
+        trabajoFinalClase2.hidden = false
+    }
+    // let usuarioActivoCargado = {}
+    // usuarioActivoCargado = JSON.parse(localStorage.getItem("usuario"))
 
-    axios.put(`${host}/alumnos/${usuarioActivoCargado.idAlumnos}`, {
-        nombre: usuarioActivoCargado.nombre,
-        apellido: usuarioActivoCargado.apellido,
-        dni: usuarioActivoCargado.dni,
-        password: usuarioActivoCargado.password,
-        tarea1: '1',
-        tarea2: usuarioActivoCargado.tarea2,
-        tarea3: usuarioActivoCargado.tarea3,
-        tarea4: usuarioActivoCargado.tarea4
-    })
+    // let tarea1Finalizada = document.getElementById('tarea1Finalizada')
 
-    tarea1Finalizada.hidden = true
+    // axios.put(`${host}/alumnos/${usuarioActivoCargado.idAlumnos}`, {
+    //     nombre: usuarioActivoCargado.nombre,
+    //     apellido: usuarioActivoCargado.apellido,
+    //     dni: usuarioActivoCargado.dni,
+    //     password: usuarioActivoCargado.password,
+    //     tarea1: '1',
+    //     tarea2: usuarioActivoCargado.tarea2,
+    //     tarea3: usuarioActivoCargado.tarea3,
+    //     tarea4: usuarioActivoCargado.tarea4
+    // })
 
-    console.log('Tarea completada')
+    // tarea1Finalizada.hidden = true
+
+    // console.log('Tarea completada')
 }
 
 const tareaCompleta = () => {
