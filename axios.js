@@ -91,7 +91,7 @@ const inicioSesionAdmin = () => {
         axios.get(`${host}/administrador/legajo/${legajo}`)
             .then((resp) => {
                 let legajoBD = resp.data[0].legajo
-                let contraBD = resp.data[0].password
+                let contraBD = resp.data[0].contraseña
 
                 if (legajo == legajoBD && passwordAdmin == contraBD) {
                     let adminActivo = resp.data[0]
