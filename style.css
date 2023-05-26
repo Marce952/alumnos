@@ -192,7 +192,7 @@ footer{
     text-shadow: 1px 1px #000;
 }
 
-.clase::after{
+/* .clase::after{
     content: '';
     position: absolute;
     border-bottom: #000000 30px solid;
@@ -202,7 +202,7 @@ footer{
     left: 0;
     bottom: 0;
     z-index: -1;    
-}
+} */
 
 /* ======== 
         PERFIL
