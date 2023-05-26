@@ -339,9 +339,11 @@ const btnActualizarDatos = async () => {
 const completarTarea = () => {
     const trabajoFinalClase2 = document.getElementById('trabajoFinalClase2')
 
-    if(trabajoFinalClase2.hidden == true){
-        trabajoFinalClase2.hidden = false
-    }
+    console.log('Tarea')
+
+    // if(trabajoFinalClase2.hidden == true){
+    //     trabajoFinalClase2.hidden = false
+    // }
     // let usuarioActivoCargado = {}
     // usuarioActivoCargado = JSON.parse(localStorage.getItem("usuario"))
 
