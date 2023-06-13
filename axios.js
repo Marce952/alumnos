@@ -136,30 +136,30 @@ const guardarAlumnos = () => {
     const confirmarPassword = document.getElementById('confirmarPassword').value
 
     if (nombre != '' && apellido != '' && dni != '' && password != '' & password.length >= '8') {
-        if(password == confirmarPassword){
+        if (password == confirmarPassword) {
             axios.get(`${host}/alumnos/existe/${dni}`)
-            .then((resp) => {
-                let existe = resp.data[0].existe
-                if (existe == 1) {
-                    alert('Este dni está siendo usado')
-                } else {
-                    axios.post(`${host}/alumnos`, {
-                        nombre,
-                        apellido,
-                        dni,
-                        password
-                    }).then((resp) => {
-                        console.log(resp)
-                    }).catch((error) => {
-                        console.log(error)
-                    })
-                    console.log('Enviado')
+                .then((resp) => {
+                    let existe = resp.data[0].existe
+                    if (existe == 1) {
+                        alert('Este dni está siendo usado')
+                    } else {
+                        axios.post(`${host}/alumnos`, {
+                            nombre,
+                            apellido,
+                            dni,
+                            password
+                        }).then((resp) => {
+                            console.log(resp)
+                        }).catch((error) => {
+                            console.log(error)
+                        })
+                        console.log('Enviado')
 
-                    alert("Usuario creado")
-                    location.href = '../index.html'
-                }
-            })
-        }else{
+                        alert("Usuario creado")
+                        location.href = '../index.html'
+                    }
+                })
+        } else {
             alert('Las contraseñas no coinciden')
         }
     } else {
@@ -324,7 +324,7 @@ const btnActualizarDatos = async () => {
         }
 
         await actualizarDatosUsuario(nombreNuevo, apellidoNuevo, dni, passwordNueva, usuarioActivoCargado.tarea1, usuarioActivoCargado.tarea2, usuarioActivoCargado.tarea3, usuarioActivoCargado.tarea4)
-        
+
         localStorageInicio(usuarioActivoCargado.idAlumnos, nombreNuevo, apellidoNuevo, dni, passwordNueva, usuarioActivoCargado.tarea1, usuarioActivoCargado.tarea2, usuarioActivoCargado.tarea3, usuarioActivoCargado.tarea4)
         alert('Datos guardados con exito')
         btnCancelarDatos()
@@ -336,36 +336,16 @@ const btnActualizarDatos = async () => {
 
 // ========== CLASES.HTML ============
 
-const completarTarea = () => {
-    const trabajoFinalClase2 = document.getElementById('trabajoFinalClase2')
+// const completarTarea = () => {
+//     localStorage.setItem('tareaCompleta1', 1)
 
-    console.log('Tarea')
-
-    // if(trabajoFinalClase2.hidden == true){
-    //     trabajoFinalClase2.hidden = false
-    // }
-    // let usuarioActivoCargado = {}
-    // usuarioActivoCargado = JSON.parse(localStorage.getItem("usuario"))
-
-    // let tarea1Finalizada = document.getElementById('tarea1Finalizada')
-
-    // axios.put(`${host}/alumnos/${usuarioActivoCargado.idAlumnos}`, {
-    //     nombre: usuarioActivoCargado.nombre,
-    //     apellido: usuarioActivoCargado.apellido,
-    //     dni: usuarioActivoCargado.dni,
-    //     password: usuarioActivoCargado.password,
-    //     tarea1: '1',
-    //     tarea2: usuarioActivoCargado.tarea2,
-    //     tarea3: usuarioActivoCargado.tarea3,
-    //     tarea4: usuarioActivoCargado.tarea4
-    // })
-
-    // tarea1Finalizada.hidden = true
-
-    // console.log('Tarea completada')
-}
+//     console.log('Tarea')
+// }
 
 const tareaCompleta = () => {
+    const trabajosFinales = document.getElementById('trabajosFinales')
+    const tarea1Finalizada = document.getElementById('tarea1Finalizada')
+
     let usuarioActivoCargado = {}
     usuarioActivoCargado = JSON.parse(localStorage.getItem("usuario"))
 
@@ -378,4 +358,39 @@ const tareaCompleta = () => {
                 tarea1Finalizada.hidden = true
             }
         })
+
+    // if (localStorage.getItem('tareaCompleta1') == 1) {
+    //     trabajosFinales.hidden = false;
+    //     tarea1Finalizada.hidden = true;
+    // } else {
+    //     trabajosFinales.hidden = true;
+    //     tarea1Finalizada.hidden = false;
+
+    // }
 }
+
+const trabajoFinal1 = () => {
+    console.log('TP enviado')
+
+    let usuarioActivoCargado = {}
+    usuarioActivoCargado = JSON.parse(localStorage.getItem("usuario"))
+
+    if (confirm('Completaste el TP') == true) {
+        axios.put(`${host}/alumnos/${usuarioActivoCargado.idAlumnos}`, {
+            nombre: usuarioActivoCargado.nombre,
+            apellido: usuarioActivoCargado.apellido,
+            dni: usuarioActivoCargado.dni,
+            password: usuarioActivoCargado.password,
+            tarea1: '1',
+            tarea2: usuarioActivoCargado.tarea2,
+            tarea3: usuarioActivoCargado.tarea3,
+            tarea4: usuarioActivoCargado.tarea4
+        })
+
+        tarea1Finalizada.hidden = true
+
+        console.log('Tarea completada')
+    }
+
+}
+
