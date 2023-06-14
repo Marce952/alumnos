@@ -230,14 +230,20 @@ footer{
 /* ==========
     ICONOS
     ========== */
+    .bi-filetype-pdf, .bi-play-fill, .bi-link-45deg{
+        font-size: larger;
+    }
+
     .bi-filetype-pdf{
         color: rgb(255, 36, 36);
-        font-size: larger;
     }
     
     .bi-play-fill{
         color: #004a55;
-        font-size: larger;
+    }
+
+    .bi-link-45deg{
+        color: cadetblue;
     }
 
 /* =================
