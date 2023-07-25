@@ -31,7 +31,7 @@ const cargarAlumnos = () => {
             console.log(error)
         })
 
-    console.log('ando')
+    console.log('Estoy funcionando')
 }
 
 const inicioSesionAlumnos = () => {
