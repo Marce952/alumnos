@@ -375,6 +375,8 @@ const trabajoFinal1 = () => {
     let usuarioActivoCargado = {}
     usuarioActivoCargado = JSON.parse(localStorage.getItem("usuario"))
 
+    let tarea1 = '1'
+
     if (confirm('Completaste el TP') == true) {
         axios.put(`${host}/alumnos/${usuarioActivoCargado.idAlumnos}`, {
             nombre: usuarioActivoCargado.nombre,
@@ -387,10 +389,89 @@ const trabajoFinal1 = () => {
             tarea4: usuarioActivoCargado.tarea4
         })
 
-        tarea1Finalizada.hidden = true
+        localStorageInicio(usuarioActivoCargado.idAlumnos, usuarioActivoCargado.nombre, usuarioActivoCargado.apellido, usuarioActivoCargado.dni, usuarioActivoCargado.password, tarea1, usuarioActivoCargado.tarea2, usuarioActivoCargado.tarea3, usuarioActivoCargado.tarea4)
+        location.reload()
 
-        console.log('Tarea completada')
+        console.log('Tarea completada 1')
     }
-
 }
 
+const trabajoFinal2 = () => {
+    console.log('TP enviado')
+
+    let usuarioActivoCargado = {}
+    usuarioActivoCargado = JSON.parse(localStorage.getItem("usuario"))
+
+    let tarea2 = '1'
+
+    if (confirm('Completaste el TP') == true) {
+        axios.put(`${host}/alumnos/${usuarioActivoCargado.idAlumnos}`, {
+            nombre: usuarioActivoCargado.nombre,
+            apellido: usuarioActivoCargado.apellido,
+            dni: usuarioActivoCargado.dni,
+            password: usuarioActivoCargado.password,
+            tarea1: usuarioActivoCargado.tarea1,
+            tarea2: '1',
+            tarea3: usuarioActivoCargado.tarea3,
+            tarea4: usuarioActivoCargado.tarea4
+        })
+
+        localStorageInicio(usuarioActivoCargado.idAlumnos, usuarioActivoCargado.nombre, usuarioActivoCargado.apellido, usuarioActivoCargado.dni, usuarioActivoCargado.password, usuarioActivoCargado.tarea1, tarea2, usuarioActivoCargado.tarea3, usuarioActivoCargado.tarea4)
+        location.reload()
+
+        console.log('Tarea completada 2')
+    }
+}
+
+const trabajoFinal3 = () => {
+    console.log('TP enviado')
+
+    let usuarioActivoCargado = {}
+    usuarioActivoCargado = JSON.parse(localStorage.getItem("usuario"))
+
+    let tarea3 = '1'
+
+    if (confirm('Completaste el TP') == true) {
+        axios.put(`${host}/alumnos/${usuarioActivoCargado.idAlumnos}`, {
+            nombre: usuarioActivoCargado.nombre,
+            apellido: usuarioActivoCargado.apellido,
+            dni: usuarioActivoCargado.dni,
+            password: usuarioActivoCargado.password,
+            tarea1: usuarioActivoCargado.tarea1,
+            tarea2: usuarioActivoCargado.tarea2,
+            tarea3: '1',
+            tarea4: usuarioActivoCargado.tarea4
+        })
+        
+        localStorageInicio(usuarioActivoCargado.idAlumnos, usuarioActivoCargado.nombre, usuarioActivoCargado.apellido, usuarioActivoCargado.dni, usuarioActivoCargado.password, usuarioActivoCargado.tarea1, usuarioActivoCargado.tarea2, tarea3, usuarioActivoCargado.tarea4)
+        location.reload()
+        console.log('Tarea completada 3')
+    }
+}
+
+const trabajoFinal4 = () => {
+    console.log('TP enviado')
+
+    let usuarioActivoCargado = {}
+    usuarioActivoCargado = JSON.parse(localStorage.getItem("usuario"))
+
+    let tarea4 = '1'
+
+    if (confirm('Completaste el TP') == true) {
+        axios.put(`${host}/alumnos/${usuarioActivoCargado.idAlumnos}`, {
+            nombre: usuarioActivoCargado.nombre,
+            apellido: usuarioActivoCargado.apellido,
+            dni: usuarioActivoCargado.dni,
+            password: usuarioActivoCargado.password,
+            tarea1: usuarioActivoCargado.tarea1,
+            tarea2: usuarioActivoCargado.tarea2,
+            tarea3: usuarioActivoCargado.tarea3,
+            tarea4: '1',
+        })
+
+        localStorageInicio(usuarioActivoCargado.idAlumnos, usuarioActivoCargado.nombre, usuarioActivoCargado.apellido, usuarioActivoCargado.dni, usuarioActivoCargado.password, usuarioActivoCargado.tarea1, usuarioActivoCargado.tarea2, usuarioActivoCargado.tarea3, tarea4)
+        location.reload()
+
+        console.log('Tarea completada 4')
+    }
+}
