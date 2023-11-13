@@ -390,7 +390,6 @@ const trabajoFinal1 = () => {
         })
 
         localStorageInicio(usuarioActivoCargado.idAlumnos, usuarioActivoCargado.nombre, usuarioActivoCargado.apellido, usuarioActivoCargado.dni, usuarioActivoCargado.password, tarea1, usuarioActivoCargado.tarea2, usuarioActivoCargado.tarea3, usuarioActivoCargado.tarea4)
-        location.reload()
 
         console.log('Tarea completada 1')
     }
@@ -417,7 +416,6 @@ const trabajoFinal2 = () => {
         })
 
         localStorageInicio(usuarioActivoCargado.idAlumnos, usuarioActivoCargado.nombre, usuarioActivoCargado.apellido, usuarioActivoCargado.dni, usuarioActivoCargado.password, usuarioActivoCargado.tarea1, tarea2, usuarioActivoCargado.tarea3, usuarioActivoCargado.tarea4)
-        location.reload()
 
         console.log('Tarea completada 2')
     }
@@ -444,7 +442,6 @@ const trabajoFinal3 = () => {
         })
         
         localStorageInicio(usuarioActivoCargado.idAlumnos, usuarioActivoCargado.nombre, usuarioActivoCargado.apellido, usuarioActivoCargado.dni, usuarioActivoCargado.password, usuarioActivoCargado.tarea1, usuarioActivoCargado.tarea2, tarea3, usuarioActivoCargado.tarea4)
-        location.reload()
         console.log('Tarea completada 3')
     }
 }
@@ -470,7 +467,6 @@ const trabajoFinal4 = () => {
         })
 
         localStorageInicio(usuarioActivoCargado.idAlumnos, usuarioActivoCargado.nombre, usuarioActivoCargado.apellido, usuarioActivoCargado.dni, usuarioActivoCargado.password, usuarioActivoCargado.tarea1, usuarioActivoCargado.tarea2, usuarioActivoCargado.tarea3, tarea4)
-        location.reload()
 
         console.log('Tarea completada 4')
     }
