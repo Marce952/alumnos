@@ -18,7 +18,8 @@
 /* #75C5C4, #ADFFFD */
 body {
     height: 100%;
-    background-image: linear-gradient(to top, #7efdfb 1%, #41918f 100%);
+    /* background-image: linear-gradient(to top, #7efdfb 1%, #41918f 100%); */
+    background-color: #07A9DC;
     background-repeat: no-repeat;
 }
 
@@ -250,6 +251,13 @@ footer{
     PANTALLA CHICAS
     =================
 */
+
+.carousel-container{
+    margin: 20px auto;
+    width: 90%;
+    height: 500px;
+    overflow: hidden;
+}
 
 @media (max-width: 576px) {
 
