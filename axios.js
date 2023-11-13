@@ -467,7 +467,6 @@ const trabajoFinal4 = () => {
         })
 
         localStorageInicio(usuarioActivoCargado.idAlumnos, usuarioActivoCargado.nombre, usuarioActivoCargado.apellido, usuarioActivoCargado.dni, usuarioActivoCargado.password, usuarioActivoCargado.tarea1, usuarioActivoCargado.tarea2, usuarioActivoCargado.tarea3, tarea4)
-localStorageInicio
         console.log('Tarea completada 4')
     }
 }
