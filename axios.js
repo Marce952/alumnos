@@ -383,7 +383,7 @@ const trabajoFinal1 = () => {
             apellido: usuarioActivoCargado.apellido,
             dni: usuarioActivoCargado.dni,
             password: usuarioActivoCargado.password,
-            tarea1: '1',
+            tarea1,
             tarea2: usuarioActivoCargado.tarea2,
             tarea3: usuarioActivoCargado.tarea3,
             tarea4: usuarioActivoCargado.tarea4
@@ -463,11 +463,11 @@ const trabajoFinal4 = () => {
             tarea1: usuarioActivoCargado.tarea1,
             tarea2: usuarioActivoCargado.tarea2,
             tarea3: usuarioActivoCargado.tarea3,
-            tarea4: '1',
+            tarea4,
         })
 
         localStorageInicio(usuarioActivoCargado.idAlumnos, usuarioActivoCargado.nombre, usuarioActivoCargado.apellido, usuarioActivoCargado.dni, usuarioActivoCargado.password, usuarioActivoCargado.tarea1, usuarioActivoCargado.tarea2, usuarioActivoCargado.tarea3, tarea4)
-
+localStorageInicio
         console.log('Tarea completada 4')
     }
 }
