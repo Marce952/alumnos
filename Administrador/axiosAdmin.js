@@ -1,5 +1,5 @@
-// let host = 'https://apialumnos.netlify.app/api'
-let host = 'http://localhost:3005'
+let host = 'https://apialumnos.netlify.app/api'
+// let host = 'http://localhost:3005'
 // let host = 'http://localhost:3000/api'
 
 const irAPrincipal = () => {
