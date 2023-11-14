@@ -22,6 +22,7 @@ const listadoDeAlumnos = () => {
         .then((resp) => {
             let tdNombre = document.getElementById('tdNombre')
             let tdApellido = document.getElementById('tdApellido')
+            let tdContraseña = document.getElementById('tdContraseña')
             let tdTarea1 = document.getElementById('tdTarea1')
             let tdTarea2 = document.getElementById('tdTarea2')
             let tdTarea3 = document.getElementById('tdTarea3')
@@ -31,6 +32,7 @@ const listadoDeAlumnos = () => {
                 const pNombre = document.createElement('p')
                 const pApellido = document.createElement('p')
                 const pDNI = document.createElement('p')
+                const pContra = document.createElement('p')
                 const pTarea1 = document.createElement('p')
                 const pTarea2 = document.createElement('p')
                 const pTarea3 = document.createElement('p')
@@ -39,6 +41,7 @@ const listadoDeAlumnos = () => {
                 pNombre.textContent = alumno.nombre
                 pApellido.textContent = alumno.apellido
                 pDNI.textContent = alumno.dni
+                pContra.textContent = alumno.password
         
                 pTarea1.textContent = alumno.tarea1 == 1 ? 'S' : 'N'
                 pTarea2.textContent = alumno.tarea2 == 1 ? 'S' : 'N'
@@ -48,6 +51,7 @@ const listadoDeAlumnos = () => {
                 tdNombre.appendChild(pNombre)
                 tdApellido.appendChild(pApellido)
                 tdDNI.appendChild(pDNI)
+                tdContraseña.appendChild(pContra)
         
                 tdTarea1.appendChild(pTarea1)
                 tdTarea2.appendChild(pTarea2)
